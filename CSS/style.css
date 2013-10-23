@@ -19,8 +19,13 @@ html, body {
 	background: #f0f0f0;	
 }
 
+#head {
+	width : 60%;
+	background-color : white;
+	margin :auto;
+}
 #logo {
-	width : 37%;
+	width : 55%;
 	margin : auto;
 	text-align : center;
 	margin-bottom : 2%;
@@ -29,9 +34,7 @@ html, body {
 	position: relative;
 	width: 600px;
 	height: 260px;
-	height: 260px;
-	top: 20%;
-	left: 32%;
+	margin: auto;
 	background: #fff;
 	padding : 0px;
 	border-radius: 3px;
@@ -66,7 +69,10 @@ html, body {
 }
 
 #contenu {
-	margin-left: 240px;
+	margin-left: 22%;
+	background-color: white;
+	border-radius: 5px;
+	padding: 22px;
 }
 form {
 	margin: 0 auto;

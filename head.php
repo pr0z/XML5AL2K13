@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Projet XML</title>	
-		<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-15">
 		<link rel="stylesheet" href="CSS/style.css" type="text/css"/>
 		<link rel="icon" type="image/x-icon" href="images/icon.jpg" />
 	<head>
