@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esgi:database
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:esgi='http://www.xmlproject.fr'
+    xsi:schemaLocation='http://www.xmlproject.fr ../xsd/realestate.xsd'>
+    <esgi:metaInformations>
+		<esgi:dbName>realestate</esgi:dbName>
+		<esgi:creatorName>roman</esgi:creatorName>
+		<esgi:creationDate>23/10/2013</esgi:creationDate>
+		<esgi:agencyName>KolossalAgence</esgi:agencyName>
+		<esgi:agencyAddress>25 avenue de la Victoire 75008 Paris</esgi:agencyAddress>
+		<esgi:agencyDirector>Paul Dupont</esgi:agencyDirector>
+	</esgi:metaInformations>
+	
+	<esgi:tables>
+		<esgi:properties>
+			<esgi:property>
+				<esgi:id>1</esgi:id>
+				<esgi:name>Palais avenue Montaigne</esgi:name>
+				<esgi:descriptif>Lorem ipsum dolor sit amet</esgi:descriptif>
+				<esgi:localisation>Paris VIII</esgi:localisation>
+				<esgi:idAgent>1</esgi:idAgent>
+			</esgi:property>
+		</esgi:properties>
+		
+		<esgi:photos>
+			<esgi:photo>
+				<esgi:id>1</esgi:id>
+				<esgi:idProperty>1</esgi:idProperty>
+				<esgi:location>/img/property1_img1.jpg</esgi:location>
+			</esgi:photo>
+		</esgi:photos>
+		
+		<esgi:agents>
+			<esgi:agent>
+				<esgi:id>1</esgi:id>
+				<esgi:firstName>Thomas</esgi:firstName>
+				<esgi:name>Desmarest</esgi:name>
+				<esgi:dateOfBirth>14/05/1978</esgi:dateOfBirth>
+			</esgi:agent>
+		</esgi:agents>
+	</esgi:tables>
+
+</esgi:database>
