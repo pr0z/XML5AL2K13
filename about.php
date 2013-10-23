@@ -7,7 +7,7 @@ include 'head.php';
 	<div id='cssmenu'>
 	<ul>
 	   <li class=''><a href='base.php'><span>Dernières bases</span></a></li>
-	   <li class=''><a href='util.php'><span>Listes utilisateurs</span></a></li>
+	   <li class=''><a href='util.php'><span>Liste des utilisateurs</span></a></li>
 	   <li class='active'><a href='about.php'><span>Contact</span></a></li>
 	</ul>
 	</div>
