@@ -1,6 +1,6 @@
 <?php 
 if($_POST['valide'] == true) {
-	header('Location: accueil.php');
+	header('Location: base.php');
 }
 include 'head.php'; 
 
