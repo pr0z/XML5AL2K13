@@ -1,0 +1,22 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.xmlproject.fr" 
+	xmlns="http://www.xmlproject.fr" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+    
+    <xsd:element name="users">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="user" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="firstName" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
+                            <xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
+                            <xsd:element name="mail" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
+                            <xsd:element name="password" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

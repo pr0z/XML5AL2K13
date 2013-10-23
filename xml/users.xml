@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esgi:users
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:esgi='http://www.xmlproject.fr'
+    xsi:schemaLocation='http://www.xmlproject.fr ../xsd/users.xsd'>
+    
+    <esgi:user>
+        <esgi:firstName>Roman</esgi:firstName>
+        <esgi:name>Leichnig</esgi:name>
+        <esgi:mail>roman.leichnig@gmail.com</esgi:mail>
+        <esgi:password>f71dbe52628a3f83a77ab494817525c6</esgi:password>
+    </esgi:user>
+    
+    <esgi:user>
+        <esgi:firstName>Benjamin</esgi:firstName>
+        <esgi:name>Graux</esgi:name>
+        <esgi:mail>benjamin.graux@gmail.com</esgi:mail>
+        <esgi:password>f71dbe52628a3f83a77ab494817525c6</esgi:password>
+    </esgi:user>
+
+</esgi:users>
