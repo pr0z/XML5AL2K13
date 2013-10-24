@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<esgi:database
+<databases
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xmlns:esgi='http://www.xmlproject.fr'
+    xmlns='http://www.xmlproject.fr'
     xsi:schemaLocation='http://www.xmlproject.fr ../xsd/realestate.xsd'>
-    <esgi:metaInformations>
-		<esgi:dbName>realestate</esgi:dbName>
-		<esgi:creatorName>roman</esgi:creatorName>
-		<esgi:creationDate>23/10/2013</esgi:creationDate>
-		<esgi:agencyName>KolossalAgence</esgi:agencyName>
-		<esgi:agencyAddress>25 avenue de la Victoire 75008 Paris</esgi:agencyAddress>
-		<esgi:agencyDirector>Paul Dupont</esgi:agencyDirector>
-	</esgi:metaInformations>
+    <database>
+        <metaInformations>
+            <dbName>realestate</dbName>
+            <creatorName>roman</creatorName>
+            <creationDate>23/10/2013</creationDate>
+            <agencyName>KolossalAgence</agencyName>
+            <agencyAddress>25 avenue de la Victoire 75008 Paris</agencyAddress>
+            <agencyDirector>Paul Dupont</agencyDirector>
+        </metaInformations>
 	
-	<esgi:tables>
-		<esgi:properties>
-			<esgi:property>
-				<esgi:id>1</esgi:id>
-				<esgi:name>Palais avenue Montaigne</esgi:name>
-				<esgi:descriptif>Lorem ipsum dolor sit amet</esgi:descriptif>
-				<esgi:localisation>Paris VIII</esgi:localisation>
-				<esgi:idAgent>1</esgi:idAgent>
-			</esgi:property>
-		</esgi:properties>
+        <tables>
+            <properties>
+                <property>
+                    <id>1</id>
+                    <name>Palais avenue Montaigne</name>
+                    <descriptif>Lorem ipsum dolor sit amet</descriptif>
+                    <localisation>Paris VIII</localisation>
+                    <idAgent>1</idAgent>
+                </property>
+            </properties>
 		
-		<esgi:photos>
-			<esgi:photo>
-				<esgi:id>1</esgi:id>
-				<esgi:idProperty>1</esgi:idProperty>
-				<esgi:location>/img/property1_img1.jpg</esgi:location>
-			</esgi:photo>
-		</esgi:photos>
+            <photos>
+                <photo>
+                    <id>1</id>
+                    <idProperty>1</idProperty>
+                    <location>/img/property1_img1.jpg</location>
+                </photo>
+            </photos>
 		
-		<esgi:agents>
-			<esgi:agent>
-				<esgi:id>1</esgi:id>
-				<esgi:firstName>Thomas</esgi:firstName>
-				<esgi:name>Desmarest</esgi:name>
-				<esgi:dateOfBirth>14/05/1978</esgi:dateOfBirth>
-			</esgi:agent>
-		</esgi:agents>
-	</esgi:tables>
-
-</esgi:database>
+            <agents>
+                <agent>
+                    <id>1</id>
+                    <firstName>Thomas</firstName>
+                    <name>Desmarest</name>
+                    <dateOfBirth>14/05/1978</dateOfBirth>
+                </agent>
+            </agents>
+        </tables>
+    </database>
+</databases>

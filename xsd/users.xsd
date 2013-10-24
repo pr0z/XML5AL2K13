@@ -1,7 +1,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://www.xmlproject.fr" 
-	xmlns="http://www.xmlproject.fr" 
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
+            targetNamespace="http://www.xmlproject.fr" 
+            xmlns="http://www.xmlproject.fr" 
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
     
     <xsd:element name="users">
         <xsd:complexType>

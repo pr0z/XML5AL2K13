@@ -351,5 +351,5 @@ li {
   font-size: 12px;
 }
 
-
+.error { font-size: 12px; font-weight: bold; color: red; text-align: center;}
 
