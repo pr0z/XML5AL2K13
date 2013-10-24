@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users
-    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xmlns='http://www.xmlproject.fr'
-    xsi:schemaLocation='http://www.xmlproject.fr ../xsd/users.xsd'>
-    
+<users>
     <user>
         <firstName>Roman</firstName>
         <name>Leichnig</name>
@@ -17,5 +13,5 @@
         <mail>benjamin.graux@gmail.com</mail>
         <password>f71dbe52628a3f83a77ab494817525c6</password>
     </user>
-
 </users>
+

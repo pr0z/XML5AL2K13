@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<databases
-    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xmlns='http://www.xmlproject.fr'
-    xsi:schemaLocation='http://www.xmlproject.fr ../xsd/realestate.xsd'>
+<databases>
     <database>
         <metaInformations>
             <dbName>realestate</dbName>
