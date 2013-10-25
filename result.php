@@ -1,29 +1,24 @@
 <?php
-$mail = $_POST['mail'];
-$password = $_POST['password'];
-
-$xml = simplexml_load_file('xml/users.xml');
-$user = $xml->xpath("//user[mail = '" . $mail . "']");
-
-if ($user != NULL) {
-    $passw = $user[0]->password;
-    if (md5($password) == $passw) {
-        include 'head.php';
-        include 'tools/functions.php';
-        ?>
-        <div id='bloc'>
-            <div id='cssmenu'>
-                <ul>
-                    <li class='active'><a href='base.php'><span>Dernières bases</span></a></li>
-                    <li class=''><a href='query.php'><span>Requête</span></a></li>            
-                    <li class=''><a href='about.php'><span>Contact</span></a></li>
-                </ul>
-            </div>
-            <div id="contenu">
-                <h3 class="mainTitle">Bases existantes</h3>
+include 'head.php';
+include 'tools/functions.php';
+?>
+<div id='bloc'>
+    <div id='cssmenu'>
+        <ul>
+            <li class=''><a href='base.php'><span>Dernières bases</span></a></li>
+            <li class='active'><a href='query.php'><span>Requête</span></a></li>
+            <li class='last'><a href='about.php'><span>Contact</span></a></li>
+        </ul>
+    </div>
+    <div id="contenu">
+        <?php
+        if ($_GET['type'] == "byuser") {
+            $results = GetDbByUsername($_GET['username']);
+            if ($results != NULL) {
+                ?>
+                <h3 class="mainTitle">Liste des bases ajoutées par <?php echo $_GET['username']; ?></h3>
                 <?php
-                $databases = ReadDbFile();
-                foreach ($databases as $db) {
+                foreach ($results as $db) {
                     ?>
                     <div class="dbContainer">
                         <h4 class="dbTitle"><?php echo $db->Name; ?></h4>
@@ -52,14 +47,10 @@ if ($user != NULL) {
                     <?php
                 }
                 ?>
-            </div>
-        </div>
-        <?php
-        include 'foot.php';
-    } else {
-        header('Location:index.php?err=passw');
-    }
-} else {
-    header('Location:index.php?err=nouser');
-}
-?>
+                <?php
+            }
+        }
+        ?>
+    </div>
+</div>
+<?php include 'foot.php'; ?>

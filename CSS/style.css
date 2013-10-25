@@ -359,3 +359,5 @@ li {
 .columns { font-size : 10px; }
 .tbContainer { margin-left: -30px !important; }
 .dbContainer { border: 1px solid grey; border-radius: 6px; padding: 20px;}
+.btnquery { margin-top: 0px !important; }
+#queriesContainer { font-size: 10px !important; }
