@@ -1,4 +1,9 @@
 <?php
+if(!isset($_POST['mail'])){
+    $_POST['mail'] = "roman.leichnig@gmail.com";
+    $_POST['password'] = "toto";
+}
+
 $mail = $_POST['mail'];
 $password = $_POST['password'];
 
@@ -14,9 +19,9 @@ if ($user != NULL) {
         <div id='bloc'>
             <div id='cssmenu'>
                 <ul>
-                    <li class='active'><a href='base.php'><span>Dernières bases</span></a></li>
+                    <li class='active'><a href='base.php'><span>Bases existantes</span></a></li>
                     <li class=''><a href='query.php'><span>Requête</span></a></li>            
-                    <li class=''><a href='about.php'><span>Contact</span></a></li>
+                    <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
                 </ul>
             </div>
             <div id="contenu">

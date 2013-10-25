@@ -31,16 +31,18 @@ function BuildBusinessObjects($xmlElement){
             $columns = array();
 
             foreach ($table->columns->children() as $col) {
-                $column = new Column((string) $col->name, (string) $col->type);
+                $column = new Column();
+                $column->init((string) $col->name, (string) $col->type);
                 array_push($columns, $column);
             }
 
-
-            $tb = new Table($name, $columns, $primaryKey);
+            $tb = new Table();
+            $tb->init($name, $columns, $primaryKey);
             array_push($tables, $tb);
         }
 
-        $database = new Database($dbName, $creatorName, $creationDate, $tables);
+        $database = new Database();
+        $database ->init($dbName, $creatorName, $creationDate, $tables);
         array_push($databases, $database);
     }
 

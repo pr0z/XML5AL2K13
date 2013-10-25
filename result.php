@@ -5,9 +5,9 @@ include 'tools/functions.php';
 <div id='bloc'>
     <div id='cssmenu'>
         <ul>
-            <li class=''><a href='base.php'><span>Dernières bases</span></a></li>
+            <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
             <li class='active'><a href='query.php'><span>Requête</span></a></li>
-            <li class='last'><a href='about.php'><span>Contact</span></a></li>
+            <li class='last'><a href='createdb.php'><span>Nouvelle base</span></a></li>
         </ul>
     </div>
     <div id="contenu">

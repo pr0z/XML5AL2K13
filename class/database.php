@@ -5,8 +5,12 @@ class Database {
     var $CreatorName;
     var $CreationDate;
     var $Tables;
-   
-    public function __construct($name, $creator, $creation, $tables) {
+    
+    public function __construct() {
+        
+    }
+    
+    public function init($name, $creator, $creation, $tables) {
         $this->Name = $name;
         $this->CreatorName = $creator;
         $this->CreationDate = $creation;

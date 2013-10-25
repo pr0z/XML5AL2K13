@@ -5,7 +5,10 @@ class Column {
     var $Type;
     var $IsPrimaryKey;
    
-    function __construct($name, $type) {
+    public function __construct() {
+    }
+    
+    public function init($name, $type) {
         $this->Name = $name;
         $this->Type = $type;
     }
