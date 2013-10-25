@@ -9,6 +9,7 @@ if ($user != NULL) {
     $passw = $user[0]->password;
     if (md5($password) == $passw) {
         include 'head.php';
+        include 'tools/functions.php';
         ?>
         <div id='bloc'>
             <div id='cssmenu'>
@@ -20,29 +21,7 @@ if ($user != NULL) {
             </div>
             <div id="contenu">
                 <?php
-                    $db = simplexml_load_file('xml/realestate.xml');
-                    $records = $db->xpath("//database");
-                    $databases = array();
-                    foreach ($records as $record){
-                        $infos = $record->metaInformations;
-                        $dbName = $infos->dbName;
-                        $creatorName = $infos->creatorName;
-                        $creationDate = $infos->creationDate;
-                        $agencyName = $infos->agencyName;
-                        $agencyDirector = $infos->agencyDirector;
-                        $agencyAddress = $infos->agencyAddress;
-                        
-                        $tables = array();
-                        $tbs = $record->xpath("//tables");
-                        foreach ($tbs as $table){
-                            foreach($table->children() as $tableName){
-                                array_push($tables, $tableName->getName());
-                            }
-                        }
-                        
-                        $database = new Database($dbName, $creatorName, $creationDate, $agencyName, $agencyDirector, $agencyAddress, $tables);
-                        array_push($databases, $database);
-                    }
+                $databases = ReadDbFile();
                 ?>
             </div>
         </div>
