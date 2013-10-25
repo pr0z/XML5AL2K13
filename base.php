@@ -20,8 +20,36 @@ if ($user != NULL) {
                 </ul>
             </div>
             <div id="contenu">
+                <h3 class="mainTitle">Bases existantes</h3>
                 <?php
                 $databases = ReadDbFile();
+                foreach ($databases as $db) {
+                    ?>
+                    <div class="dbContainer">
+                        <h4 class="dbTitle"><?php echo $db->Name; ?></h4>
+                        <i class="dbInfos">Créee par <?php echo $db->CreatorName; ?>, le <?php echo $db->CreationDate; ?></i><br />
+                        <ul class="tbContainer">
+                            <?php
+                            foreach ($db->Tables as $table) {
+                                ?>
+                                <li class="tbName">- <?php echo $table->Name; ?></li>
+                                <?php
+                                foreach ($table->Columns as $column) {
+                                    ?>
+                                    <li class="columns">&nbsp;&nbsp;<?php echo $column->Name; ?> (<?php echo $column->Type; ?>) <?php
+                                        if ($column->Name == $table->PrimaryKey) {
+                                            echo "[PRIMARY_KEY]";
+                                        }
+                                        ?>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                    <?php
+                }
                 ?>
             </div>
         </div>

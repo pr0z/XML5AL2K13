@@ -9,23 +9,25 @@ function ReadDbFile() {
     $databases = array();
     foreach ($records as $record) {
         $infos = $record->metaInformations;
-        $dbName = $infos->dbName;
-        $creatorName = $infos->creatorName;
-        $creationDate = $infos->creationDate;
+        $dbName = (string)$infos->dbName;
+        $creatorName = (string)$infos->creatorName;
+        $creationDate = (string)$infos->creationDate;
 
         $tables = array();
         foreach ($record->tables->xpath("//table") as $table) {
-            $name = $table->name;
+            $name = (string)$table->name;
+            $primaryKey = (string)$table->primaryKey;
             $columns = array();
             
-            foreach ($table->columns->xpath("//column") as $col) {
-                $column = new Column($col->name, $col->type);
-                array_push($columns, $column);
+            foreach ($table->columns->children() as $col) {
+                $column = new Column((string)$col->name, (string)$col->type);
+                array_push($columns, $column);            
             }
             
-            $tb = new Table($name, $columns);
+            
+            $tb = new Table($name, $columns, $primaryKey);
             array_push($tables, $tb);
-        }
+            }
 
         $database = new Database($dbName, $creatorName, $creationDate, $tables);
         array_push($databases, $database);
@@ -33,5 +35,3 @@ function ReadDbFile() {
     
     return $databases;
 }
-
-?>

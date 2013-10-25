@@ -352,4 +352,10 @@ li {
 }
 
 .error { font-size: 12px; font-weight: bold; color: red; text-align: center;}
-
+.mainTitle { text-align: center; font-weight:  bold;}
+.dbTitle  { margin-bottom: -2px; font-size: 16px;}
+.dbInfos { font-size: 11px; }
+.tbName { font-size: 13px; margin-top: 8px;}
+.columns { font-size : 10px; }
+.tbContainer { margin-left: -30px !important; }
+.dbContainer { border: 1px solid grey; border-radius: 6px; padding: 20px;}
