@@ -42,9 +42,11 @@ print_r($colsByTable);
 $xml_script .= "\r</database>\r\n";
 
 // Ecriture du fichier XML
+if (!file_exists("xml/$user_name")) mkdir("xml/$user_name", 0777, true);
 $file = fopen("xml/$user_name/$db_name.xml", "w+");
 fwrite($file, $_xml);
 fclose($file);
+print_r("ISOK");
 
 echo "</pre>";
 session_destroy();
