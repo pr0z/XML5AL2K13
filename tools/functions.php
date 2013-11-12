@@ -7,7 +7,8 @@ include 'class/database.php';
 function ReadDbFile() {
     $db = simplexml_load_file('xml/databases.xml');
     $records = $db->xpath("//database");
-    return BuildBusinessObjects($records);
+    //return BuildBusinessObjects($records);
+    return listXML($records);
 }
 
 function GetDbByUsername($username) {
@@ -47,4 +48,21 @@ function BuildBusinessObjects($xmlElement){
     }
 
     return $databases;
+}
+
+function listXML($xmlElement) {
+	$databases = array();
+	foreach ($xmlElement as $db) {
+		$path = "xml/".(string)$db;
+		$xml = simplexml_load_file($path);
+		$infos = $xml->metaInformations;
+		$dbName = (string) $infos->dbName;
+        $creatorName = (string) $infos->creatorName;
+        $creationDate = (string) $infos->creationDate;
+        
+        $database = new Database();
+        $database ->init($dbName, $creatorName, $creationDate, $db);
+        array_push($databases, $database);
+	}
+	return $databases;
 }
