@@ -41,15 +41,15 @@ for ($i = 0; $i < $nbtables; $i++ ){
         array_push($cols, $col);
     }
     $xml_script .= "\t\t\t</columns>\r\n";
-    $xml_script .= "\t\t<table>\r\n";
+    $xml_script .= "\t\t</table>\r\n";
     array_push($infos, $id);
     array_push($infos, $tb[0]);
     array_push($infos, $cols);
     array_push($colsByTable, $infos);
 }
 
-echo "<pre>";
-print_r($colsByTable);
+//echo "<pre>";
+//print_r($colsByTable);
 
 $xml_script .= "\t</tables>\r\n";
 $xml_script .= "</database>\r\n";
@@ -60,6 +60,12 @@ $file = fopen("xml/$user_name/$db_name.xml", "w+");
 fwrite($file, $xml_script);
 fclose($file);
 
-echo "</pre>";
+$list_scripts = simplexml_load_file("xml/databases.xml");
+$list_scripts->addChild("database", "$user_name/$db_name.xml");
+$list_scripts->asXML("xml/databases.xml");
+
+//echo "</pre>";
 session_destroy();
+
+header('Location: base.php');
 ?>
