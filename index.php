@@ -10,7 +10,7 @@ if (isset($_GET['err'])) {
         $err = "Le mot de passe est incorrect !";
 }
 ?>
-<form method='POST' action="base.php" name="connect">
+<form method='POST' action="base.php" name="connect"  class="custom-form">
     <div id="container">
         <div id="connect">
 
