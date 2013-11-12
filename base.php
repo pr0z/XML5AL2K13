@@ -18,12 +18,12 @@ if ($user != NULL) {
         ?>
         <div id='bloc'>
             <div id='cssmenu'>
-                <ul>
-                    <li class='active'><a href='base.php'><span>Bases existantes</span></a></li>
-                    <li class=''><a href='query.php'><span>Requête</span></a></li>            
-                    <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
-                </ul>
-            </div>
+		        <ul>
+		            <li class='active'><a href='base.php'><span>Bases existantes</span></a></li>
+		            <li class=''><a href='query.php'><span>Requête</span></a></li>
+		            <li class='last'><a href='createdb.php'><span>Nouvelle base</span></a></li>
+		        </ul>
+		    </div>
             <div id="contenu">
                 <h3 class="mainTitle">Bases existantes</h3>
                 <?php
@@ -31,27 +31,20 @@ if ($user != NULL) {
                 foreach ($databases as $db) {
                     ?>
                     <div class="dbContainer">
-                        <h4 class="dbTitle"><?php echo $db->Name; ?></h4>
+                        <h4 class="dbTitle" style="width:380px;"><?php echo $db->Name; ?></h4>
                         <i class="dbInfos">Ajoutée par <?php echo $db->CreatorName; ?>, le <?php echo $db->CreationDate; ?></i><br />
-                        <ul class="tbContainer">
-                            <?php
-                            foreach ($db->Tables as $table) {
-                                ?>
-                                <li class="tbName">- <?php echo $table->Name; ?></li>
-                                <?php
-                                foreach ($table->Columns as $column) {
-                                    ?>
-                                    <li class="columns">&nbsp;&nbsp;<?php echo $column->Name; ?> (<?php echo $column->Type; ?>) <?php
-                                        if ($column->Name == $table->PrimaryKey) {
-                                            echo "[PRIMARY_KEY]";
-                                        }
-                                        ?>
-                                    </li>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </ul>
+                        <div class="container-bt">
+                        	<form method="post" action="steptwo.php" class="formBase" style="margin-left:-245px;">
+                        		<input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
+                        		<input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
+                        		<input type="submit" value="Consulter / Editer" />
+                        	</form>
+                        	<form method="post" action="" class="formBase" style="margin-left:-90px;">
+                        		<input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
+                        		<input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
+                        		<input type="submit" value="Supprimer" onClick="">
+                    		</form>
+                    	</div>
                     </div>
                     <br />
                     <?php
