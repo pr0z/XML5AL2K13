@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+	<metaInformations>
+		<dbName>Test</dbName>
+		<creatorName>user-name</creatorName>
+		<creationDate>28/10/2013</creationDate>
+	</metaInformations>
+	<tables>
+		<table>
+			<name>Table</name>
+			<columns>
+				<column>
+					<name>Id</name>
+					<type>int</type>
+				</column>
+				<column>
+					<name>Numéro</name>
+					<type>int</type>
+				</column>
+			</columns>
+		</table>
+	</tables>
+</database>

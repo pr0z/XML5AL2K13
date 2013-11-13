@@ -10,7 +10,7 @@ include 'head.php';
         </ul>
     </div>
     <div id="contenu" class="queriesContainer">
-        <form method="get" action="result.php">
+        <form method="get" action="result.php"  class="custom-form">
             <label for="username" class="dblabels">Bases crées par : </label><input type="text" name="username" />
             <input class="btnquery" type="submit" value="Rechercher" name="rechercher"/>
             <input type="hidden" name="type" value="byuser"/>

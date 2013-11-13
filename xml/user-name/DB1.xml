@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<database>
+	<metaInformations>
+		<dbName>DB1</dbName>
+		<creatorName>user-name</creatorName>
+		<creationDate>29/10/2013</creationDate>
+	</metaInformations>
+	<tables>
+		<table>
+			<name>Table</name>
+			<columns>
+				
+				
+			<column><name>Id</name><type>int</type></column><column><name>Desc</name><type>varchar</type></column><column><name>texte</name><type>text</type></column></columns>
+		</table>
+		<table>
+			<name>Coucou</name>
+			<columns>
+				
+				
+			<column><name>Id</name><type>int</type></column><column><name>Desc</name><type>varchar</type></column><column><name>texte</name><type>text</type></column></columns>
+		</table>
+	<table><name>Texte</name><columns><column><name>id</name><type>int</type></column></columns></table></tables>
+</database>

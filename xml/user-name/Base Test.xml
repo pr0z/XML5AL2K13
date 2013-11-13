@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+	<metaInformations>
+		<dbName>Base Test</dbName>
+		<creatorName>user-name</creatorName>
+		<creationDate>29/10/2013</creationDate>
+	</metaInformations>
+	<tables>
+		<table>
+			<name>ESGI</name>
+			<columns>
+				<column>
+					<name>Id</name>
+					<type>int</type>
+				</column>
+				<column>
+					<name>ESGI</name>
+					<type>String</type>
+				</column>
+			</columns>
+		</table>
+	</tables>
+</database>

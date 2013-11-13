@@ -4,16 +4,16 @@ class Database {
     var $Name;
     var $CreatorName;
     var $CreationDate;
-    var $Tables;
+    var $File;
     
     public function __construct() {
         
     }
     
-    public function init($name, $creator, $creation, $tables) {
+    public function init($name, $creator, $creation, $file) {
         $this->Name = $name;
         $this->CreatorName = $creator;
         $this->CreationDate = $creation;
-        $this->Tables = $tables;
+        $this->File = $file;
     }
 }
