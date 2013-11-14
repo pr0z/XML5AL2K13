@@ -28,25 +28,11 @@ function GetDbByUsername($username) {
 }
 
 function GetDbByDate($criteria, $date){
-    $fdt = DateTime::createFromFormat("Y-m-d", $date);;
+    
+    $fdt = DateTime::createFromFormat("Y-m-d", $date);
     $xml = simplexml_load_file('xml/databases.xml');
     $records = $xml->xpath("//database");
     $results = array();
-    $operator = "";
-    
-    switch ($criteria) {
-        case "before":
-            $operator = "<";
-            break;
-        case "after":
-            $operator = ">";
-            break;
-        case "on":
-            $operator = "==";
-            break;
-        default:
-            break;
-    }
     
     foreach ($records as $db) {
         $path = "xml/" . (string) $db;
@@ -57,39 +43,30 @@ function GetDbByDate($criteria, $date){
         $creationDate = (string) $infos->creationDate;
         
         $cdt = DateTime::createFromFormat("d/m/Y", $creationDate);
-        $condition = "return ".$cdt." ".$operator." ".$fdt.";";
-        echo var_dump(eval($condition));
-        echo "toto";
         $test = false;
         
-        /*switch ($criteria) {
+        switch ($criteria) {
         case "before":
-            var_dump($cdt<$fdt);
             if ($cdt < $fdt) $test = true;
             break;
         case "after":
-            var_dump($cdt>$fdt);
             if ($cdt > $fdt) $test = true;
             break;
         case "on":
-            var_dump($cdt==$fdt);
             if ($cdt == $fdt) $test = true;
             break;
         default:
             break;
-    }*/
+    }
         
         if ($test){
-            echo $creationDate." ok<br />";
             $database = new Database();
             $database->init($dbName, $creatorName, $creationDate, $db);
             array_push($results, $database);
-        } else {
-            echo $creationDate." ko <br/>";
-        }
+        } 
     }
     
-    return 1;
+    return$results;
 }
 
 function ListXML($xmlElement) {
@@ -136,4 +113,22 @@ function DisplayResults($sectionTitle, $results) {
     }
     ?>
     <?php
+}
+
+function GetFormattedTitle($criteria, $date){
+    $date = DateTime::createFromFormat("Y-m-d", $_GET['date'])->format("d/m/Y");
+    switch ($criteria) {
+        case "before":
+            return "Liste des bases créées avant le ".$date;
+            break;
+        case "after":
+            return "Liste des bases créées après le ".$date;
+            break;
+        case "on":
+            return "Liste des bases créées le ".$date;
+            break;
+        default:
+            return null;
+            break;
+    }
 }

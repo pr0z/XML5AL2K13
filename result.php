@@ -18,7 +18,7 @@ include 'tools/functions.php';
             if ($results != NULL) {
                 if ($results != 'nouser') {
                     if ($results != 'norecord') {
-                        DisplayResults("Liste des bas créées par ".$_GET['username']."",  $results);
+                        DisplayResults("Liste des bases créées par ".$_GET['username']."",  $results);
                     } else {
                         ?>
                         <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
@@ -35,7 +35,7 @@ include 'tools/functions.php';
         if($_GET['type'] == "bydate"){
             $results = GetDbByDate($_GET['criteria'], $_GET['date']);
             if ($results != NULL){
-                
+                DisplayResults(GetFormattedTitle($_GET['criteria'], $_GET['date']),  $results);
             } else {
                 ?>
                     <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
