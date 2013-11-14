@@ -8,6 +8,7 @@ include 'tools/functions.php';
             <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
             <li class='active'><a href='query.php'><span>Requête</span></a></li>
             <li class='last'><a href='createdb.php'><span>Nouvelle base</span></a></li>
+            <li class='last'><a href='logout.php'><span>Logout</span></a></li>
         </ul>
     </div>
     <div id="contenu">

@@ -3,7 +3,7 @@ session_start();
 $nbtables = $_GET['nbtables'];
 $tables = $_SESSION['tables'];
 
-$user_name = "user-name";
+$user_name = $_SESSION['user'];;
 $db_name = $_SESSION['dbname'];
 $date = date('d/m/o');
 
