@@ -63,7 +63,7 @@ html, body {
 	margin-left: 30%;
 	background-color: white;
 	border-radius: 5px;
-	padding: 22px;
+	padding: 20px;
 }
 form {
 	margin: 0 auto;
@@ -109,6 +109,13 @@ p a:hover {
 #bloc {
 width : 1024px;
 margin: auto;
+}
+
+.tabStep2 {
+    width : 580px;
+    text-align: center;
+    margin: auto;
+    font-size: 14px;
 }
 .formBase input[type=submit] {
 	margin-top: -18px;
@@ -413,4 +420,6 @@ li {
 .btnquery { margin-top: 0px !important; }
 .queriesContainer { font-size: 10px !important; }
 .dblabels { width: 130px; font-size: 12px;}
-.separator { margin-left: 140px; }
+.separator { border-bottom: 1px solid; width: 325px;  margin-bottom: 10px; }
+hr{ height: 30px; border-style: solid; border-color: black; border-width: 1px 0 0 0; border-radius: 20px; } 
+hr:before { /* Not really supposed to work, but does */ display: block; content: ""; height: 30px; margin-top: -31px; border-style: solid; border-color: black; border-width: 0 0 1px 0; border-radius: 20px; }
