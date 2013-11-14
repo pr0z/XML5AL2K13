@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<database><metaInformations><dbName>Test42</dbName><creatorName>Roman</creatorName><creationDate>14/11/2013</creationDate></metaInformations><tables><table><name>Table42</name><columns><column><name>Id</name><type>int</type></column></columns></table></tables></database>

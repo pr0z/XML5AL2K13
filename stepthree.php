@@ -130,7 +130,7 @@ if (isset($_SESSION['user'])) {
         $("input[name=nbcols]").val($("input[name=nbcols]").val() - 1);
         $("#btAdd").html('<input type="button" onClick="ajouterColone('+$("input[name=nbcols]").val()+');" value="Ajouter une colone" />');
         }
-        </script
+    </script>
         <?php
         include 'foot.php';
     } else {
