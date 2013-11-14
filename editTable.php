@@ -77,13 +77,23 @@ if (isset($_SESSION['user'])) {
         }
         $racineXML->asXml('xml/' . $user_name . '/' . $db_name . '.xml');
     }
+	elseif (ISSET($_POST['tbname'])) {
+		foreach ($racineXML->tables->table as $table) {
+			if ($table->name == $_POST['tbname']) {
+				$dom = dom_import_simplexml($table);
+				$dom->parentNode->removeChild($dom);
+			}
+		}
+		$racineXML->asXml('xml/' . $user_name . '/' . $db_name . '.xml');
+	}
+	
     ?>
     <div id='bloc'>
         <div id='cssmenu'>
             <ul>
                 <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
-                <li class='active'><a href='createdb.php'><span>Nouvelle base</span></a></li>
+                <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>
@@ -106,12 +116,15 @@ if (isset($_SESSION['user'])) {
     <?php foreach ($racineXML->tables->table as $table) { ?>
                 <h4 class="dbTitle" style="width:400px;"><?php echo $table->name; ?></h4>
                 <div class="container-bt">
-                    <form method="post" action="" class="formBase" style="margin-left:-245px;">
+                    <form method="post" action="editColumn.php" class="formBase" style="margin-left:-245px;">
+                    	<input type="hidden" name="tbname" value="<?php echo $table->name; ?>" />
+                        <input type="hidden" name="nbcols" value="<?php echo $table->columns->column->count(); ?>" />
                         <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                         <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
                         <input type="submit" value="Consulter / Editer" />
                     </form>
-                    <form method="post" action="" class="formBase" style="margin-left:-90px;">
+                    <form method="post" action="editTable.php" class="formBase" onSubmit="return confirmDelete();" style="margin-left:-90px;">
+                    	<input type="hidden" name="tbname" value="<?php echo $table->name; ?>" />
                         <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                         <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
                         <input type="submit" value="Supprimer">
@@ -120,9 +133,9 @@ if (isset($_SESSION['user'])) {
     <?php } ?>
             <br />
             <h3 class="mainTitle">Ajouter un nouvelle table</h3>
-            <form method="post" action="stepthree.php"  class="custom-form">
-                <label for="dbname" class="dblabels"> Nom de la table : </label><input type="text" name="tbname" /><br />
-                <label for="nbtable" class="dblabels">Nombre de colonnes : </label><input type="text" name="nbcols" /><br />
+            <form method="post" action="editColumn.php"  class="custom-form" onSubmit="return verify();">
+                <label for="dbname" class="dblabels"> Nom de la table : </label><input type="text" id="inputName" name="tbname" /><br />
+                <label for="nbtable" class="dblabels">Nombre de colonnes : </label><input type="number" id="inputNb" name="nbcols" onChange="testNumber();" onKeyPress="return false;" value="1"/><br />
                 <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                 <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
                 <input class="btnquery" type="submit" value="Suivant"/><br />
@@ -135,3 +148,30 @@ if (isset($_SESSION['user'])) {
     Header('Location: index.php');
 }
 ?>
+
+<script type="text/Javascript">
+	function verify() {
+		var ok = true;
+		if($.trim($("#inputName").val()) == "") {
+			alert("le Nom de colone est vide");
+			ok = false;
+		}
+		$(".dbTitle").each(function(i) {
+			if($.trim($("#inputName").val()) == $(this).html()) {
+				alert("ce Nom de colone existe déjà");
+				ok = false;
+			}
+		});
+		return ok;
+	}
+	
+	function testNumber() {
+		if($("#inputNb").val() < 1) $("#inputNb").val(1);
+	}
+	
+	function confirmDelete() {
+		var ok = false;
+		if(confirm("Voulez-vous supprimer cette table de votre base de données?")) ok = true;
+		return ok;
+	}
+</script>
