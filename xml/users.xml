@@ -22,18 +22,6 @@
         <password>f71dbe52628a3f83a77ab494817525c6</password>
         <rights>write</rights>
     </user>
-    <user>
-        <firstName>Invité</firstName>
-        <name>Guest</name>
-        <mail>guest@gmail.com</mail>
-        <password>f71dbe52628a3f83a77ab494817525c6</password>
-        <rights>read</rights>
-    </user>
-    <user>
-        <firstName>Anthony</firstName>
-        <name>Dubois</name>
-        <mail>anthony.dubois@gmail.com</mail>
-        <password>f71dbe52628a3f83a77ab494817525c6</password>
-        <rights/>
-    </user>
-<user><firstName>Anthony</firstName><name>Dubois</name><mail>anthony.dubois@gmail.com</mail><password>f71dbe52628a3f83a77ab494817525c6</password><rights/></user></users>
+    
+    
+<user><firstName>Guest</firstName><name>Guest</name><mail>guest@gmail.com</mail><password>f71dbe52628a3f83a77ab494817525c6</password><rights>read</rights></user></users>

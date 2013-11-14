@@ -9,6 +9,41 @@ function ReadDbFile() {
     return ListXML($records);
 }
 
+function GetUsers() {
+    $xml = simplexml_load_file('xml/users.xml');
+    $users = $xml->xpath("//user");
+    $results = array();
+
+    foreach ($users as $user) {
+        $us = array();
+        $us['firstName'] = (string) $user->firstName;
+        $us['name'] = (string) $user->name;
+        $us['mail'] = (string) $user->mail;
+        $us['rights'] = (string) $user->rights;
+
+        array_push($results, $us);
+    }
+
+    DisplayUsers($results);
+}
+
+function DeleteUser($firstName, $name) {
+    $xml = simplexml_load_file('xml/users.xml');
+    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']")[0];
+    $dom=dom_import_simplexml($user);
+    $dom->parentNode->removeChild($dom);
+    $xml->asXML('xml/users.xml');
+    header('Location:admin.php');
+}
+
+function ChangeUserRights($firstName, $name, $rights){
+    $xml = simplexml_load_file('xml/users.xml');
+    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']")[0];
+    $user->rights = $rights;
+    $xml->asXML('xml/users.xml');
+    header('Location:admin.php');    
+}
+
 function GetDbNames() {
     $xml = simplexml_load_file('xml/databases.xml');
     $records = $xml->xpath("//database");
@@ -34,7 +69,7 @@ function GetXpathQuery($dbname, $query) {
         $dbf = simplexml_load_file($path);
         $results = $dbf->xpath($query);
         if ($results != NULL) {
-            echo "<h3 class='mainTitle'>Résultats pour : '".$query."'</h3>";
+            echo "<h3 class='mainTitle'>Résultats pour : '" . $query . "'</h3>";
             $level = 0;
             foreach ($results as $result)
                 BrowseNode($result, $level);
@@ -135,16 +170,16 @@ function GetDbByDate($criteria, $date) {
     return$results;
 }
 
-function RegisterUser($firstName, $name, $mail, $password){
+function RegisterUser($firstName, $name, $mail, $password) {
     $xml = simplexml_load_file('xml/users.xml');
-    
+
     $user = $xml->addChild('user');
     $user->addChild('firstName', $firstName);
     $user->addChild('name', $name);
     $user->addChild('mail', $mail);
     $user->addChild('password', md5($password));
-    $user->addChild("rights", '');
-    
+    $user->addChild("rights", 'read');
+
     $xml->asXML('xml/users.xml');
 }
 
@@ -192,6 +227,32 @@ function DisplayResults($sectionTitle, $results) {
     }
     ?>
     <?php
+}
+
+function DisplayUsers($users) {
+    foreach ($users as $user) {
+        ?>
+        <div class="dbContainer">
+            <h4 class="dbTitle" style="width:380px;"><?php echo $user['firstName'] . " " . $user['name']; ?></h4>
+            <i class="dbInfos">Droits <?php echo "-" . $user['rights']; ?></i><br />
+            <div class="container-bt">
+                <form method="post" action="updateUser.php" class="formBase" style="margin-left:-225px;">
+                    <input type="hidden" name="firstName" value="<?php echo $user['firstName']; ?>" />
+                    <input type="hidden" name="name" value="<?php echo $user['name']; ?>" />
+                    <input type="hidden" name="type" value="updateRights" />
+                    <input type="submit" value="Gérer les droits" />
+                </form>
+                <form method="post" action="updateUser.php" class="formBase" style="margin-left:-90px;">
+                    <input type="hidden" name="firstName" value="<?php echo $user['firstName']; ?>" />
+                    <input type="hidden" name="name" value="<?php echo $user['name']; ?>" />
+                    <input type="hidden" name="type" value="deleteUser" />
+                    <input type="submit" value="Supprimer" />
+                </form>
+            </div>
+        </div>
+        <br />
+        <?php
+    }
 }
 
 function GetFormattedTitle($criteria, $date) {
