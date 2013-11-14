@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
         </div>
         <div id="contenu" style="padding-bottom:50px;">
             <h3 class="mainTitle">Créer une nouvelle base de données</h3>
-            <form method="post" action="steptwo.php" class="custom-form">
+            <form method="post" action="editTable.php" class="custom-form">
                 <label for="dbname" class="dblabels"> Nom de la base : </label><input type="text" name="dbname" /><br />
                 <input class="btnquery" type="submit" value="Suivant" name="go"/>
                 <?php if (ISSET($_GET['1'])) echo '<span style="color:red;font-size:10px;position:absolute;margin-left:151px;">Veuillez saisir un nom de base non vide</span>'; ?>
