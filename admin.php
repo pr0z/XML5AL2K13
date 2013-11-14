@@ -8,8 +8,8 @@ if (isset($_SESSION['user'])) {
             <ul>
                 <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
-                <li class='active'><a href='createdb.php'><span>Nouvelle base</span></a></li>
-                <li class=''><a href='admin.php'><span>Administration</span></a></li>
+                <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
+                <li class='active'><a href='admin.php'><span>Administration</span></a></li>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>

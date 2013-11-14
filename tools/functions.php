@@ -143,6 +143,7 @@ function RegisterUser($firstName, $name, $mail, $password){
     $user->addChild('name', $name);
     $user->addChild('mail', $mail);
     $user->addChild('password', md5($password));
+    $user->addChild("rights", '');
     
     $xml->asXML('xml/users.xml');
 }

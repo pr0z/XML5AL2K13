@@ -24,6 +24,7 @@ if (isset($_SESSION['user'])) {
                 <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
                 <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
+                <li class=''><a href='admin.php'><span>Administration</span></a></li>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>
@@ -32,9 +33,9 @@ if (isset($_SESSION['user'])) {
             <table cellspacing="8" class="tabStep2">
                 <tr>
                     <td><u>Nom de la base de données</u> </td>
-                    <td><u>Date de création de la base</u> </td>
-                    <td><u>Créateur</u> </td><td>
-                </tr>
+                <td><u>Date de création de la base</u> </td>
+                <td><u>Créateur</u> </td><td>
+                    </tr>
                 <tr>
                     <td><b><?php echo $dbname; ?></b></td>
                     <td><b><?php echo $creationDate; ?></b></td>
@@ -133,9 +134,9 @@ if (isset($_SESSION['user'])) {
         $("#btAdd").html('<input type="button" onClick="ajouterColone('+$("input[name=nbcols]").val()+');" value="Ajouter une colone" />');
         }
     </script>
-        <?php
-        include 'foot.php';
-    } else {
-        Header('Location: index.php');
-    }
-    ?>
+    <?php
+    include 'foot.php';
+} else {
+    Header('Location: index.php');
+}
+?>
