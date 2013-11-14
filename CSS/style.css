@@ -24,8 +24,8 @@ html, body {
 }
 #container {
 	position: relative;
-	width: 600px;
-	height: 260px;
+	width: 40%;
+	height: 40%;
 	margin: auto;
 	background: #fff;
 	padding : 0px;

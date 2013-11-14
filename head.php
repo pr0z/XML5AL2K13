@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="CSS/style.css" type="text/css"/>
 		<link rel="icon" type="image/x-icon" href="images/icon.jpg" />
 		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+                <script type="text/javascript" src="js/verifChamps.js"></script>
 	<head>
 <body>
 	<div id="head">

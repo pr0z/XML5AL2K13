@@ -22,10 +22,10 @@ if (isset($_GET['err'])) {
                     <p class="error"><?php echo $err; ?>
                         <?php }
                     ?>
-                <tr><td>Identifiant</td><td><input type="name" name="mail" value=""></td></tr>
-                <tr><td>Pass</td><td><input type="password" name="password" value=""></td></tr>
+                <tr><td>Identifiant</td><td><input id="mailIndex" type="name" name="mail" value=""/></td></tr>
+                <tr><td>Pass</td><td><input type="password" name="password" value="" /></td></tr>
             </table>
-            <input type="submit" value="ok" name="valide" />
+            <input type="submit" value="ok" name="valide" onclick="return verifierMail();"/>
         </div>
     </div>
     <?php include 'foot.php'; ?>
