@@ -50,6 +50,34 @@ html, body {
 	animation-iteration-count: 1;
 	animation-timing-function: linear;
 }
+
+#containerRegister{
+    position: relative;
+	width: 570px;
+	height: 390px;
+	margin: auto;
+	background: #fff;
+	padding : 0px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+}
+
 #tabConnect {
 	margin : auto;
 }
@@ -234,6 +262,7 @@ margin: auto;
 }
 
 #leftRadioDate {margin-left:  154px;}
+.register { font-size:  12px; font-family:  Arial, Helvetica, sans-serif; margin-left: 10px; margin-top: 10px;}
 
 /***************************************************
  *                     CSS  MENU                      *

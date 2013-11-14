@@ -1,6 +1,8 @@
 <?php
+if (isset($_POST['register'])){
+    Header('Location:register.php');
+}
 session_start();
-
 $mail = $_POST['mail'];
 $password = $_POST['password'];
 

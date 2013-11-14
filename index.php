@@ -26,7 +26,9 @@ if (isset($_GET['err'])) {
                 <tr><td>Identifiant</td><td><input id="mailIndex" type="name" name="mail" value=""/></td></tr>
                 <tr><td>Pass</td><td><input type="password" name="password" value="" /></td></tr>
             </table>
-            <input type="submit" value="ok" name="valide" onclick="return verifierMail();"/>
+            <input type="submit" value="Connection" name="connection" onclick="return verifierMail();"/>
+            <input type="submit" value="Inscription" name="register" onclick="return verifierMail();"/>
         </div>
     </div>
+</form>
     <?php include 'foot.php'; ?>

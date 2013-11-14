@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databases>
-    <database>Roman/Db1.xml</database>
-    <database>Benjamin/Db2.xml</database>
-    <database>Roman/toto.xml</database>
-    <database>Roman/totu.xml</database>
-    <database>Roman/Test42.xml</database>
-    <database>Roman/TEST.xml</database>
-    <database>Roman/kdmqlsk.xml</database>
-    <database>Roman/LMJFDSQM%.xml</database>
-<database>Roman/osdqp.xml</database></databases>
+    <database>Roman/XMLPROJECT.xml</database><database>Roman/A.xml</database></databases>

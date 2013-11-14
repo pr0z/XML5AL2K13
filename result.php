@@ -21,7 +21,7 @@ include 'tools/functions.php';
                         DisplayResults("Liste des bases créées par " . $_GET['username'] . "", $results);
                     } else {
                         ?>
-                        <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
+                        <p class="error">Aucun enregistrement ne correspond à vos critères de recherche.</p>
                         <?php
                     }
                 } else {
@@ -38,7 +38,7 @@ include 'tools/functions.php';
                 DisplayResults(GetFormattedTitle($_GET['criteria'], $_GET['date']), $results);
             } else {
                 ?>
-                <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
+                <p class="error">Aucun enregistrement ne correspond à vos critères de recherche.</p>
                 <?php
             }
         }
@@ -55,7 +55,7 @@ include 'tools/functions.php';
                 }
             } else {
                 ?>
-                <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
+                <p class="error">Aucun enregistrement ne correspond à vos critères de recherche.</p>
                 <?php
             }
         }

@@ -32,11 +32,12 @@ function GetXpathQuery($dbname, $query) {
     if ($db != NULL) {
         $path = "xml/" . (string) $db[0];
         $dbf = simplexml_load_file($path);
-        $result = $dbf->xpath($query);
-        if ($result != NULL) {
-            echo "<b>Contenu de la balise &lt;" . $result[0]->getName() . "&gt;</b> :<br /><br />";
+        $results = $dbf->xpath($query);
+        if ($results != NULL) {
+            echo "<h3 class='mainTitle'>Résultats pour : '".$query."'</h3>";
             $level = 0;
-            BrowseNode($result[0], $level);
+            foreach ($results as $result)
+                BrowseNode($result, $level);
             return "ok";
         }
     } else {
@@ -48,23 +49,26 @@ function GetXpathQuery($dbname, $query) {
 
 function BrowseNode($xmlNode, $level) {
     $closed = false;
-    
+
     //si le noeud a des enfants, on va les parcourir
     if (count($xmlNode->children()) > 0) {
-        for($i = 0; $i < $level; $i++) echo "|&nbsp;&nbsp;";
+        for ($i = 0; $i < $level; $i++)
+            echo "|&nbsp;&nbsp;";
         echo "<b>&lt;" . $xmlNode->getName() . "&gt;<br /></b>";
-        
+
         foreach ($xmlNode->children() as $node) {
             BrowseNode($node[0], $level + 1);
         }
     } else { //sinon on l'affiche
-        for($i = 0; $i < $level; $i++) echo "|&nbsp;&nbsp;";
-        echo "<b>&lt;" . $xmlNode->getName() . "&gt;" . (string) $xmlNode . "&lt;/" . $xmlNode->getName() . "&gt;</b> <br />";
+        for ($i = 0; $i < $level; $i++)
+            echo "|&nbsp;&nbsp;";
+        echo "<b>&lt;" . $xmlNode->getName() . "&gt;</b>" . (string) $xmlNode . "<b>&lt;/" . $xmlNode->getName() . "&gt;</b> <br />";
         $closed = true;
     }
-    
-    if (!$closed){//si la balise n'a pas été refermée on la referme
-        for($i = 0; $i < $level; $i++) echo "|&nbsp;&nbsp;";
+
+    if (!$closed) {//si la balise n'a pas été refermée on la referme
+        for ($i = 0; $i < $level; $i++)
+            echo "|&nbsp;&nbsp;";
         echo "<b>&lt;/" . $xmlNode->getName() . "&gt;</b><br />";
     }
 }
@@ -129,6 +133,18 @@ function GetDbByDate($criteria, $date) {
     }
 
     return$results;
+}
+
+function RegisterUser($firstName, $name, $mail, $password){
+    $xml = simplexml_load_file('xml/users.xml');
+    
+    $user = $xml->addChild('user');
+    $user->addChild('firstName', $firstName);
+    $user->addChild('name', $name);
+    $user->addChild('mail', $mail);
+    $user->addChild('password', md5($password));
+    
+    $xml->asXML('xml/users.xml');
 }
 
 function ListXML($xmlElement) {

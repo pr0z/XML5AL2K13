@@ -5,6 +5,7 @@
         <name>Leichnig</name>
         <mail>roman.leichnig@gmail.com</mail>
         <password>f71dbe52628a3f83a77ab494817525c6</password>
+        <rights>write</rights>
     </user>
     
     <user>
@@ -12,6 +13,25 @@
         <name>Graux</name>
         <mail>benjamin.graux@gmail.com</mail>
         <password>f71dbe52628a3f83a77ab494817525c6</password>
+        <rights>write</rights>
+    </user>
+    <user>
+        <firstName>Quentin</firstName>
+        <name>Libert</name>
+        <mail>libert.quentin@gmail.com</mail>
+        <password>f71dbe52628a3f83a77ab494817525c6</password>
+        <rights>write</rights>
+    </user>
+    <user>
+        <firstName>Invité</firstName>
+        <name>Guest</name>
+        <mail>guest@gmail.com</mail>
+        <password>f71dbe52628a3f83a77ab494817525c6</password>
+    </user>
+    <user>
+        <firstName>Anthony</firstName>
+        <name>Dubois</name>
+        <mail>anthony.dubois@gmail.com</mail>
+        <password>f71dbe52628a3f83a77ab494817525c6</password>
     </user>
 </users>
-
