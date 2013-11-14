@@ -7,17 +7,28 @@ include 'class/database.php';
 function ReadDbFile() {
     $db = simplexml_load_file('xml/databases.xml');
     $records = $db->xpath("//database");
-    //return BuildBusinessObjects($records);
     return listXML($records);
 }
 
 function GetDbByUsername($username) {
-    $db = simplexml_load_file('xml/databases.xml');
-    $records = $db->xpath("//database[metaInformations/creatorName = '" . $username . "']");
-    return BuildBusinessObjects($records);
+    $userFile = simplexml_load_file('xml/users.xml');
+    $user = $userFile->xpath("//user[firstName = '" . $username . "']");
+    if ($user != NULL) {
+        $db = simplexml_load_file('xml/databases.xml');
+        $records = $db->xpath("//database[contains(., '$username')]");
+        if ($records != NULL){
+            return listXML($records);
+        } else {
+            return "norecord";
+        }
+    } else {
+        return "nouser";
+    }
+    //$records = $db->xpath("//database[metaInformations/creatorName = '" . $username . "']");
+    //return BuildBusinessObjects($records);
 }
 
-function BuildBusinessObjects($xmlElement){
+function BuildBusinessObjects($xmlElement) {
     $databases = array();
     foreach ($xmlElement as $record) {
         $infos = $record->metaInformations;
@@ -43,7 +54,7 @@ function BuildBusinessObjects($xmlElement){
         }
 
         $database = new Database();
-        $database ->init($dbName, $creatorName, $creationDate, $tables);
+        $database->init($dbName, $creatorName, $creationDate, $tables);
         array_push($databases, $database);
     }
 
@@ -51,18 +62,18 @@ function BuildBusinessObjects($xmlElement){
 }
 
 function listXML($xmlElement) {
-	$databases = array();
-	foreach ($xmlElement as $db) {
-		$path = "xml/".(string)$db;
-		$xml = simplexml_load_file($path);
-		$infos = $xml->metaInformations;
-		$dbName = (string) $infos->dbName;
+    $databases = array();
+    foreach ($xmlElement as $db) {
+        $path = "xml/" . (string) $db;
+        $xml = simplexml_load_file($path);
+        $infos = $xml->metaInformations;
+        $dbName = (string) $infos->dbName;
         $creatorName = (string) $infos->creatorName;
         $creationDate = (string) $infos->creationDate;
-        
+
         $database = new Database();
-        $database ->init($dbName, $creatorName, $creationDate, $db);
+        $database->init($dbName, $creatorName, $creationDate, $db);
         array_push($databases, $database);
-	}
-	return $databases;
+    }
+    return $databases;
 }

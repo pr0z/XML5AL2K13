@@ -1,2 +1,0 @@
-<?xml version="1.0"?>
-<database><metaInformations><dbName>tutu</dbName><creatorName>user-name</creatorName><creationDate>13/11/2013</creationDate></metaInformations><tables><table><name>table1</name><columns><column><name>id</name><type>int</type></column></columns></table></tables></database>

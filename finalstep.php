@@ -3,7 +3,7 @@ session_start();
 $nbtables = $_GET['nbtables'];
 $tables = $_SESSION['tables'];
 
-$user_name = $_SESSION['user'];;
+$user_name = strtolower($_SESSION['user']);
 $db_name = $_SESSION['dbname'];
 $date = date('d/m/o');
 
@@ -47,9 +47,6 @@ for ($i = 0; $i < $nbtables; $i++ ){
     array_push($infos, $cols);
     array_push($colsByTable, $infos);
 }
-
-//echo "<pre>";
-//print_r($colsByTable);
 
 $xml_script .= "\t</tables>\r\n";
 $xml_script .= "</database>\r\n";

@@ -27,7 +27,7 @@ if ($user != NULL) {
             <div id="contenu">
                 <h3 class="mainTitle">Bases existantes</h3>
                 <?php
-                $databases = ReadDbFile();
+                $databases = ReadDbFile();  
                 foreach ($databases as $db) {
                     ?>
                     <div class="dbContainer">
