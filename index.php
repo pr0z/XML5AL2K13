@@ -13,15 +13,16 @@ if (isset($_GET['err'])) {
 <form method='POST' action="base.php" name="connect"  class="custom-form">
     <div id="container">
         <div id="connect">
-
+        <?php
+            if ($err != "") {
+        ?>
+            <p class="error"><?php echo $err; ?></p>
+        <?php         
+            }
+        ?>
             <table id="tabConnect">
                 <caption><h3>Identification</h3></caption>
-                <?php
-                if ($err != "") {
-                    ?>
-                    <p class="error"><?php echo $err; ?>
-                        <?php }
-                    ?>
+               
                 <tr><td>Identifiant</td><td><input id="mailIndex" type="name" name="mail" value=""/></td></tr>
                 <tr><td>Pass</td><td><input type="password" name="password" value="" /></td></tr>
             </table>

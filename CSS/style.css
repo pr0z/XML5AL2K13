@@ -223,18 +223,10 @@ margin: auto;
 	background-image: linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
 }
 
-
-
-
-
-
-
-
-
-
 /***************************************************
  *                     CSS  MENU                      *
  ***************************************************/
+
 #cssmenu ul,
 li {
   list-style: none;
@@ -409,7 +401,7 @@ li {
 /***************************************************
  *                  CUSTOM STUFF                  *
  ***************************************************/
-.error { font-size: 12px; font-weight: bold; color: red; text-align: center;}
+.error { font-size: 14px; font-weight: bold; color: grey; text-align: center;}
 .mainTitle { text-align: center; font-weight:  bold;}
 .dbTitle  { margin-bottom: -2px; font-size: 16px;}
 .dbInfos { font-size: 11px; }
