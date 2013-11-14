@@ -10,25 +10,27 @@ if (isset($_GET['err'])) {
         $err = "Le mot de passe est incorrect !";
 }
 ?>
-<form method='POST' action="base.php" name="connect"  class="custom-form">
-    <div id="container">
-        <div id="connect">
+<div id="container">
+    <div id="connect">
         <?php
-            if ($err != "") {
-        ?>
+        if ($err != "") {
+            ?>
             <p class="error"><?php echo $err; ?></p>
-        <?php         
-            }
+            <?php
+        }
         ?>
+        <form method='POST' action="base.php" name="connect"  class="custom-form">
             <table id="tabConnect">
                 <caption><h3>Identification</h3></caption>
-               
+
                 <tr><td>Identifiant</td><td><input id="mailIndex" type="name" name="mail" value=""/></td></tr>
                 <tr><td>Pass</td><td><input type="password" name="password" value="" /></td></tr>
             </table>
             <input type="submit" value="Connection" name="connection" onclick="return verifierMail();"/>
-            <input type="submit" value="Inscription" name="register" onclick="return verifierMail();"/>
-        </div>
+        </form>
+        <form action="register.php" class="custom-form">
+            <input type="submit" value="Inscription" name="register" id="registerButton"/>
+        </form>
     </div>
-</form>
-    <?php include 'foot.php'; ?>
+</div>
+<?php include 'foot.php'; ?>

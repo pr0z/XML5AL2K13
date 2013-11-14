@@ -1,9 +1,5 @@
 <?php
-if (isset($_POST['register'])) {
-    Header('Location:register.php');
-}
 session_start();
-
 
 if (isset($_POST['mail'])) {
     $mail = $_POST['mail'];
