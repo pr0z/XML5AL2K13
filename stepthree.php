@@ -28,13 +28,19 @@ if (isset($_SESSION['user'])) {
             </ul>
         </div>
         <div id="contenu">
-            <h3 class="mainTitle">Ajouter/Modifier une table : "<?php echo $tbname; ?>"</h3><br /><br />
-            Nom de la base de données : <?php echo $dbname; ?><br />
-            Créateur : <?php echo $creator; ?><br />
-            Date de création de la base de données : <?php echo $creationDate; ?><br />
-            <br />
-            <br />
-            <br />
+            <h3 class="mainTitle">Ajouter/Modifier une table : "<?php echo $tbname; ?>"</h3>
+            <table cellspacing="8" class="tabStep2">
+                <tr>
+                    <td><u>Nom de la base de données</u> </td>
+                    <td><u>Date de création de la base</u> </td>
+                    <td><u>Créateur</u> </td><td>
+                </tr>
+                <tr>
+                    <td><b><?php echo $dbname; ?></b></td>
+                    <td><b><?php echo $creationDate; ?></b></td>
+                    <td><b><?php echo $creator; ?></b></td>
+                </tr>
+            </table>
             <form method="post" action="steptwo.php"  class="custom-form">
                 <div id="listCol">
                     <?php
@@ -43,7 +49,7 @@ if (isset($_SESSION['user'])) {
                     if (ISSET($XMLtable)) {
                         foreach ($XMLtable->columns->column as $column) {
                             ?>
-                            <div id="col_<?php echo $i; ?>">
+                            <div id="col_<?php echo $i; ?>" class="separator">
                                 <label for = "dbname" class = "dblabels"> Nom de la colonne : </label><input type="text" name="colname<?php echo $i; ?>" value="<?php echo $column->name; ?>" /><input type="button"  name="btSupp<?php echo $i; ?>" onClick="suppColone(<?php echo $i; ?>);" value="Supprimer la colone" style="position:absolute;margin-top:20px;" /><br />
                                 <label for = "nbtable" class = "dblabels"> Type : </label>
                                 <select name="typecol<?php echo $i; ?>">
@@ -55,8 +61,7 @@ if (isset($_SESSION['user'])) {
                                     <option value="text" <?php if ($column->type == "text") echo "selected"; ?>>TEXT</option>
                                     <option value="date" <?php if ($column->type == "date") echo "selected"; ?>>DATE</option>
                                 </select>
-                                <br />
-                                <i class="separator">---------------------------------------------------------------------------------------------</i><br/>
+                                <br /><br />
                             </div>
                             <?php
                             $i++;
@@ -65,9 +70,9 @@ if (isset($_SESSION['user'])) {
 
                     for ($i; $i < $nbcols; $i++) {
                         ?>
-                        <div id="col_<?php echo $i; ?>">
-                            <label for = "dbname" class = "dblabels"> Nom de la colonne : </label><input type="text" name="colname<?php echo $i; ?>" /><input type="button"  name="btSupp<?php echo $i; ?>" onClick="suppColone(<?php echo $i; ?>);" value="Supprimer la colone" style="position:absolute;margin-top:20px;" /><br />
-                            <label for = "nbtable" class = "dblabels"> Type : </label>
+                        <div id="col_<?php echo $i; ?>" class="separator">
+                            <label for = "dbname" class = "dblabels">Nom de la colonne : </label><input type="text" name="colname<?php echo $i; ?>" /><input type="button"  name="btSupp<?php echo $i; ?>" onClick="suppColone(<?php echo $i; ?>);" value="Supprimer la colone" style="position:absolute;margin-top:20px;" /><br />
+                            <label for = "nbtable" class = "dblabels">Type : </label>
                             <select name="typecol<?php echo $i; ?>">
                                 <option value="int">INT</option>
                                 <option value="float">FLOAT</option>
@@ -77,14 +82,13 @@ if (isset($_SESSION['user'])) {
                                 <option value="text">TEXT</option>
                                 <option value="date">DATE</option>
                             </select>
-                            <br />
-                            <i class="separator">----------------------------</i><br/>
+                            <br /><br />
                         </div>
                         <?php
                     }
                     echo '</div>';
                     echo '<div id="btAdd"><input type="button" onClick="ajouterColone(' . $i . ');" value="Ajouter une colone" /></div>';
-                    echo '<hr /><br />';
+                    echo '<br /><hr />';
                     ?>
                     <input type="hidden" name="dbname" value="<?php echo $dbname; ?>" />
                     <input type="hidden" name="tbname" value="<?php echo $tbname; ?>" />
@@ -94,11 +98,10 @@ if (isset($_SESSION['user'])) {
             </form>
         </div>
     </div>
-    <?php include 'foot.php'; ?>
 
     <script type="text/Javascript">
         function ajouterColone(id) {
-        var h	  = '<div id="col_'+id+'">';
+        var h	  = '<div id="col_'+id+'" class="separator">';
         h   	+= '	<label for = "dbname" class = "dblabels"> Nom de la colonne : </label><input type="text" name="colname'+id+'" /><input name="btSupp'+id+'" type="button" onClick="suppColone('+id+');" value="Supprimer la colone" style="position:absolute;margin-top:20px;" /><br />';
         h 		+= '	<label for = "nbtable" class = "dblabels"> Type : </label>';
         h 		+= '	<select name="typecol'+id+'">';
@@ -110,8 +113,7 @@ if (isset($_SESSION['user'])) {
         h 		+= '		<option value="text">TEXT</option>';
         h 		+= '		<option value="date">DATE</option>';
         h 		+= '	</select>';
-        h 		+= '	<br />';
-        h 		+= '	<i class="separator">----------------------------</i><br/>';
+        h 		+= '	<br /><br />';
         h		+= '</div>';
         $("#listCol").append(h);
         $("input[name=nbcols]").val(id+1);

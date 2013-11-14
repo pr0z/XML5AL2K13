@@ -89,12 +89,18 @@ if (isset($_SESSION['user'])) {
         </div>
         <div id="contenu">
             <h3 class="mainTitle">Informations sur la base de données</h3>
-            Nom de la base de données : <?php echo $db_name; ?><br />
-            Créateur : <?php echo $user_name; ?><br />
-            Date de création de la base de données : <?php echo $creationDate; ?><br />
-            <br />
-            <br />
-            <br />
+            <table cellspacing="8" class="tabStep2">
+                <tr>
+                    <td><u>Nom de la base de données</u> </td>
+                    <td><u>Date de création de la base</u> </td>
+                    <td><u>Créateur</u> </td><td>
+                </tr>
+                <tr>
+                    <td><b><?php echo $db_name; ?></b></td>
+                    <td><b><?php echo $creationDate; ?></b></td>
+                    <td><b><?php echo $user_name; ?></b></td>
+                </tr>
+            </table>
             <h3 class="mainTitle">Liste des tables</h3>
     <?php if ($racineXML->tables->table->count() == 0) echo "Aucune table ajoutée pour le moment"; ?>
     <?php foreach ($racineXML->tables->table as $table) { ?>
@@ -112,8 +118,6 @@ if (isset($_SESSION['user'])) {
                     </form>
                 </div>
     <?php } ?>
-            <br />
-            <br />
             <br />
             <h3 class="mainTitle">Ajouter un nouvelle table</h3>
             <form method="post" action="stepthree.php"  class="custom-form">
