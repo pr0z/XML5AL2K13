@@ -1,2 +1,19 @@
 <?xml version="1.0"?>
-<database><metaInformations><dbName>kdmqlsk</dbName><creatorName>Roman</creatorName><creationDate>14/11/2013</creationDate></metaInformations><tables><table><name>dqlmk</name><columns><column><name>EZAM</name><type>int</type></column></columns></table></tables></database>
+<database>
+    <metaInformations>
+        <dbName>kdmqlsk</dbName>
+        <creatorName>Roman</creatorName>
+        <creationDate>14/11/2013</creationDate>
+    </metaInformations>
+    <tables>
+        <table>
+            <name>dqlmk</name>
+            <columns>
+                <column>
+                    <name>EZAM</name>
+                    <type>int</type>
+                </column>
+            </columns>
+        </table>
+    </tables>
+</database>

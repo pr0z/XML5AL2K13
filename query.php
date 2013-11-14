@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION['user'])) {
     include 'head.php';
+    include 'tools/functions.php';
     ?>
     <div id='bloc'>
         <div id='cssmenu'>
@@ -28,6 +29,24 @@ if (isset($_SESSION['user'])) {
                 <input class="btnquery" type="submit" value="Rechercher" name="rechercher"/>
                 <input type="hidden" name="type" value="bydate"/>
             </form>
+            <form method="get" action="result.php"  class="custom-form">
+                <label for="username" class="dblabels">Recherche xpath  : </label>
+                <select name="database">
+                    <option value="none">Base de données</option>
+                    <?php
+                    foreach (GetDbNames() as $db) {
+                        ?>
+                        <option value="<?php echo $db; ?>"><?php echo $db; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                <input type="text" name="query" width="210" /><br />
+                <input class="btnquery" type="submit" value="Rechercher" name="rechercher"/>
+                <input type="hidden" name="type" value="xpathquery"/>
+            </form>
+            <br />
+            <br />
         </div>
     </div>
     <?php

@@ -18,7 +18,7 @@ include 'tools/functions.php';
             if ($results != NULL) {
                 if ($results != 'nouser') {
                     if ($results != 'norecord') {
-                        DisplayResults("Liste des bases créées par ".$_GET['username']."",  $results);
+                        DisplayResults("Liste des bases créées par " . $_GET['username'] . "", $results);
                     } else {
                         ?>
                         <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
@@ -31,14 +31,31 @@ include 'tools/functions.php';
                 }
             }
         }
-        
-        if($_GET['type'] == "bydate"){
+
+        if ($_GET['type'] == "bydate") {
             $results = GetDbByDate($_GET['criteria'], $_GET['date']);
-            if ($results != NULL){
-                DisplayResults(GetFormattedTitle($_GET['criteria'], $_GET['date']),  $results);
+            if ($results != NULL) {
+                DisplayResults(GetFormattedTitle($_GET['criteria'], $_GET['date']), $results);
             } else {
                 ?>
-                    <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
+                <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
+                <?php
+            }
+        }
+
+        if ($_GET['type'] == 'xpathquery') {
+            $results = GetXpathQuery($_GET['database'], $_GET['query']);
+            if ($results != 'noresult') {
+                if ($results != 'nodb') {
+                    
+                } else {
+                    ?>
+                    <p class="error">La base que vous recherchez n'existe pas.</p>
+                    <?php
+                }
+            } else {
+                ?>
+                <p class="error">Aucun enregitrement ne correspond à vos critères de recherche.</p>
                 <?php
             }
         }
