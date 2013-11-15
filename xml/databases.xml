@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databases>
-    <database>Roman/XMLPROJECT.xml</database><database>Roman/A.xml</database></databases>
+	<database>XMLPROJECT.xml</database>
+    <database>Quentin/XMLDataBase.xml</database></databases>

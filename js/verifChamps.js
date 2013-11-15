@@ -11,3 +11,9 @@ function verifierMail() {
         return true;
     }
 }
+
+function confirmDelete(s) {
+	var ok = false;
+	if(confirm(s)) ok = true;
+	return ok;
+}

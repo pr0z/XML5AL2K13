@@ -210,16 +210,25 @@ function DisplayResults($sectionTitle, $results) {
             <h4 class="dbTitle" style="width:380px;"><?php echo $db->Name; ?></h4>
             <i class="dbInfos">Ajoutée par <?php echo $db->CreatorName; ?>, le <?php echo $db->CreationDate; ?></i><br />
             <div class="container-bt">
-                <form method="post" action="editTable.php" class="formBase" style="margin-left:-245px;">
-                    <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
-                    <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
-                    <input type="submit" value="Consulter / Editer" />
-                </form>
-                <form method="post" action="" class="formBase" style="margin-left:-90px;">
-                    <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
-                    <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
-                    <input type="submit" value="Supprimer" onClick="">
-                </form>
+            	<?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?>
+                    <form method="post" action="editTable.php" class="formBase" style="margin-left:-245px;">
+                        <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
+                        <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
+                        <input type="submit" value="Consulter / Editer" />
+                    </form>
+                    <form method="post" action="deleteBase.php" class="formBase" style="margin-left:-90px;" onSubmit="return confirmDelete('Etes-vous sûr de vouloir supprimer cette structure de base de données?');">
+                        <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
+                        <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
+                        <input type="submit" value="Supprimer">
+                    </form>
+				<?php }
+				else { ?>
+                	<form method="post" action="consultTable.php" class="formBase" style="margin-left:-90px;">
+                        <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
+                        <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
+                        <input type="submit" value="Consulter" />
+                    </form>
+                <?php } ?>
             </div>
         </div>
         <br />

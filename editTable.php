@@ -93,8 +93,8 @@ if (isset($_SESSION['user'])) {
             <ul>
                 <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
-                <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
-                    <li class=''><a href='admin.php'><span>Administration</span></a></li>·
+                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li><?php } ?>
+                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='admin.php'><span>Administration</span></a></li><?php } ?>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>
@@ -124,7 +124,7 @@ if (isset($_SESSION['user'])) {
                         <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
                         <input type="submit" value="Consulter / Editer" />
                     </form>
-                    <form method="post" action="editTable.php" class="formBase" onSubmit="return confirmDelete();" style="margin-left:-90px;">
+                    <form method="post" action="editTable.php" class="formBase" onSubmit="return confirmDelete('Voulez-vous supprimer cette table de votre base de données?');" style="margin-left:-90px;">
                     	<input type="hidden" name="tbname" value="<?php echo $table->name; ?>" />
                         <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                         <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
@@ -168,11 +168,5 @@ if (isset($_SESSION['user'])) {
 	
 	function testNumber() {
 		if($("#inputNb").val() < 1) $("#inputNb").val(1);
-	}
-	
-	function confirmDelete() {
-		var ok = false;
-		if(confirm("Voulez-vous supprimer cette table de votre base de données?")) ok = true;
-		return ok;
 	}
 </script>

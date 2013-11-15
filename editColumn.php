@@ -23,19 +23,24 @@ if (isset($_SESSION['user'])) {
             <ul>
                 <li class=''><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
-                <li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li>
-                <li class=''><a href='admin.php'><span>Administration</span></a></li>
+                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li><?php } ?>
+                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='admin.php'><span>Administration</span></a></li><?php } ?>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>
         <div id="contenu">
+        	<form method="post" action="editTable.php" class="" style="margin-bottom:50px;margin-top:0px;">
+                <input type="hidden" name="creator" value="<?php echo $creator ?>" />
+                <input type="hidden" name="dbname" value="<?php echo $dbname ?>" />
+                <input type="submit" value="Retour à la Table" />
+            </form>
             <h3 class="mainTitle">Ajouter/Modifier une table : "<?php echo $tbname; ?>"</h3>
             <table cellspacing="8" class="tabStep2">
                 <tr>
                     <td><u>Nom de la base de données</u> </td>
-                <td><u>Date de création de la base</u> </td>
-                <td><u>Créateur</u> </td><td>
-                    </tr>
+                	<td><u>Date de création de la base</u> </td>
+                	<td><u>Créateur</u> </td><td>
+                </tr>
                 <tr>
                     <td><b><?php echo $dbname; ?></b></td>
                     <td><b><?php echo $creationDate; ?></b></td>
