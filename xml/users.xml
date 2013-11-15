@@ -31,11 +31,5 @@
         <password>f71dbe52628a3f83a77ab494817525c6</password>
         <rights>read</rights>
     </user>
-    <user>
-        <firstName>Anthony</firstName>
-        <name>Dubois</name>
-        <mail>anthony.dubois@gmail.com</mail>
-        <password>f71dbe52628a3f83a77ab494817525c6</password>
-        <rights>read</rights>
-    </user>
+    
 </users>
