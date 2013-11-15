@@ -12,17 +12,23 @@ if (isset($_POST['mail'])) {
         $passw = $user[0]->password;
 
         if (md5($password) == $passw || isset($_SESSION['user'])) {
-
             if (!isset($_SESSION['user'])) {
                 $_SESSION['user'] = (string) $user[0]->firstName;
                 $_SESSION['right'] = (string) $user[0]->rights;
             }
         } else {
-            header('Location:index.php?err=passw');
+            ?>
+            <script>
+                window.location.replace("index.php?err=passw");
+            </script>
+            <?php
         }
     } else {
-
-        header('Location:index.php?err=nouser');
+        ?>
+        <script>
+            window.location.replace("index.php?err=nouser");
+        </script>
+        <?php
     }
 }
 
@@ -52,6 +58,10 @@ if (isset($_SESSION['user'])) {
     <?php
     include 'foot.php';
 } else {
-    Header('Location: index.php');
+    ?>
+    <script>
+        window.location.replace("index.php");
+    </script>
+    <?php
 }
 ?>
