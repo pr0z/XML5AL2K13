@@ -29,8 +29,8 @@ function GetUsers() {
 
 function DeleteUser($firstName, $name) {
     $xml = simplexml_load_file('xml/users.xml');
-    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']")[0];
-    $dom=dom_import_simplexml($user);
+    $user = $xml->xpath("//user[firstName = '".$firstName."' and name = '".$name."']");
+    $dom=dom_import_simplexml($user[0]);
     $dom->parentNode->removeChild($dom);
     $xml->asXML('xml/users.xml');
     header('Location:admin.php');
@@ -38,8 +38,8 @@ function DeleteUser($firstName, $name) {
 
 function ChangeUserRights($firstName, $name, $rights){
     $xml = simplexml_load_file('xml/users.xml');
-    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']")[0];
-    $user->rights = $rights;
+    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
+    $user[0]->rights = $rights;
     $xml->asXML('xml/users.xml');
     header('Location:admin.php');    
 }
