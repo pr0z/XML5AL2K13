@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<database><metaInformations><dbName>PhpDataBase</dbName><creatorName>Roman</creatorName><creationDate>15/11/2013</creationDate></metaInformations><tables><table><name>HtmlFile</name><columns><column><name>IDHtmlFile</name><type>int</type></column><column><name>NameHtmlFile</name><type>varchar</type></column></columns></table></tables></database>

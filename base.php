@@ -15,8 +15,8 @@ if (isset($_POST['mail'])) {
 
             if (!isset($_SESSION['user'])) {
                 $_SESSION['user'] = (string) $user[0]->firstName;
-				$_SESSION['right'] = (string) $user[0]->rights;
-			}
+                $_SESSION['right'] = (string) $user[0]->rights;
+            }
         } else {
             header('Location:index.php?err=passw');
         }
@@ -36,8 +36,8 @@ if (isset($_SESSION['user'])) {
             <ul>
                 <li class='active'><a href='base.php'><span>Bases existantes</span></a></li>
                 <li class=''><a href='query.php'><span>Requête</span></a></li>
-                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li><?php } ?>
-                <?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='admin.php'><span>Administration</span></a></li><?php } ?>
+                <?php if (isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='createdb.php'><span>Nouvelle base</span></a></li><?php } ?>
+                <?php if (isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?><li class=''><a href='admin.php'><span>Administration</span></a></li><?php } ?>
                 <li class='last'><a href='logout.php'><span>Logout</span></a></li>
             </ul>
         </div>
