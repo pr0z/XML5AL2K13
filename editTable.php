@@ -136,7 +136,11 @@ if (isset($_SESSION['user'])) {
             <h3 class="mainTitle">Ajouter un nouvelle table</h3>
             <form method="post" action="editColumn.php"  class="custom-form" onSubmit="return verify();">
                 <label for="dbname" class="dblabels"> Nom de la table : </label><input type="text" id="inputName" name="tbname" /><br />
-                <label for="nbtable" class="dblabels">Nombre de colonnes : </label><input type="number" id="inputNb" name="nbcols" onChange="testNumber();" onKeyPress="return false;" value="1"/><br />
+                <label for="nbtable" class="dblabels">Nombre de colonnes : </label>
+                <input id="inputNb" name="nbcols" onKeyPress="return false;" class="ui-spinner-input" value="1"/>
+                <a style="position:absolute;margin-left:-19px;margin-top:7px;pointer-events:none;" tabindex="-1" role="button" aria-disabled="false"><img src="images/btTop.png" /></a>
+                <a style="position:absolute;margin-left:-19px;margin-top:21px;pointer-events:none;" tabindex="-1" role="button" aria-disabled="false"><img src="images/btBot.png" /></a>
+                <br />
                 <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                 <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
                 <input class="btnquery" type="submit" value="Suivant"/><br />
@@ -151,6 +155,10 @@ if (isset($_SESSION['user'])) {
 ?>
 
 <script type="text/Javascript">
+	$(function() {
+		$( "#inputNb" ).spinner();
+		$( "#inputNb" ).spinner('option', 'min', 1);
+	});
 	function verify() {
 		var ok = true;
 		if($.trim($("#inputName").val()) == "") {
@@ -164,9 +172,5 @@ if (isset($_SESSION['user'])) {
 			}
 		});
 		return ok;
-	}
-	
-	function testNumber() {
-		if($("#inputNb").val() < 1) $("#inputNb").val(1);
 	}
 </script>
