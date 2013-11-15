@@ -27,6 +27,12 @@ function GetUsers() {
     DisplayUsers($results);
 }
 
+function GetUserRights($firstName, $name){
+    $xml = simplexml_load_file('xml/users.xml');
+    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
+    return $user[0]->rights;
+}
+
 function DeleteUser($firstName, $name) {
     $xml = simplexml_load_file('xml/users.xml');
     $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
@@ -184,6 +190,8 @@ function RegisterUser($firstName, $name, $mail, $password) {
     $user->addChild("rights", 'read');
 
     $xml->asXML('xml/users.xml');
+    $_SESSION['user'] = $firstName;
+    $_SESSION['rights'] = 'read';
 }
 
 function ListXML($xmlElement) {

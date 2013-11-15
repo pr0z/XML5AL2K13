@@ -18,11 +18,14 @@ if (isset($_POST['type'])) {
                 </ul>
             </div>
             <div id="contenu">
+                <?php
+                    $rights = GetUserRights($_POST['firstName'],  $_POST['name']);
+                 ?>
                 <h3 class="mainTitle">Modifier les droits de <?php echo $_POST['firstName'] . " " . $_POST['name']; ?></h3>
                 <div class="dbContainer">
                     <form method="post" action="updateUser.php" class="custom-form">
-                        <input type="radio" name="right" value="read"><i>read</i></input><br />
-                        <input type="radio" name="right" value="write"><i>write</i></input>
+                        <input type="radio" <?php if($rights == "read") {?> checked="checked"<?php }; ?> name="right" value="read"><i>read</i></input><br />
+                        <input type="radio" <?php if($rights == "write") {?> checked="checked"<?php }; ?> name="right" value="write"><i>write</i></input>
                         <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>" />
                         <input type="hidden" name="firstName" value="<?php echo $_POST['firstName']; ?>" />
                         <input type="hidden" name="type" value="changeRights" />
