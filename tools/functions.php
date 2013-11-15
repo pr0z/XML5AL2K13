@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'class/column.php';
 include 'class/table.php';
 include 'class/database.php';
@@ -29,19 +30,20 @@ function GetUsers() {
 
 function DeleteUser($firstName, $name) {
     $xml = simplexml_load_file('xml/users.xml');
-    $user = $xml->xpath("//user[firstName = '".$firstName."' and name = '".$name."']");
-    $dom=dom_import_simplexml($user[0]);
+    $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
+    $dom = dom_import_simplexml($user[0]);
     $dom->parentNode->removeChild($dom);
     $xml->asXML('xml/users.xml');
     header('Location:admin.php');
 }
 
-function ChangeUserRights($firstName, $name, $rights){
+function ChangeUserRights($firstName, $name, $rights) {
     $xml = simplexml_load_file('xml/users.xml');
     $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
     $user[0]->rights = $rights;
     $xml->asXML('xml/users.xml');
-    header('Location:admin.php');    
+    $_SESSION['right'] = $rights;
+    header('Location:admin.php');
 }
 
 function GetDbNames() {
@@ -210,7 +212,7 @@ function DisplayResults($sectionTitle, $results) {
             <h4 class="dbTitle" style="width:380px;"><?php echo $db->Name; ?></h4>
             <i class="dbInfos">Ajoutée par <?php echo $db->CreatorName; ?>, le <?php echo $db->CreationDate; ?></i><br />
             <div class="container-bt">
-            	<?php if(isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?>
+                <?php if (isset($_SESSION['right']) && $_SESSION['right'] == "write") { ?>
                     <form method="post" action="editTable.php" class="formBase" style="margin-left:-245px;">
                         <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
                         <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
@@ -221,9 +223,9 @@ function DisplayResults($sectionTitle, $results) {
                         <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
                         <input type="submit" value="Supprimer">
                     </form>
-				<?php }
-				else { ?>
-                	<form method="post" action="consultTable.php" class="formBase" style="margin-left:-90px;">
+                <?php } else {
+                    ?>
+                    <form method="post" action="consultTable.php" class="formBase" style="margin-left:-90px;">
                         <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
                         <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
                         <input type="submit" value="Consulter" />

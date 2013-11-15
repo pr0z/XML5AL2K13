@@ -5,7 +5,7 @@
         <name>Leichnig</name>
         <mail>roman.leichnig@gmail.com</mail>
         <password>f71dbe52628a3f83a77ab494817525c6</password>
-        <rights>write</rights>
+        <rights>read</rights>
     </user>
     
     <user>
