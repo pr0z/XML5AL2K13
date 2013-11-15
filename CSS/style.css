@@ -27,7 +27,7 @@ html, body {
 #container {
 	position: relative;
 	width: 570px;
-	height: 230px;
+	height: 290px;
 	margin: auto;
 	background: #fff;
 	padding : 0px;
@@ -54,7 +54,7 @@ html, body {
 #containerRegister{
     position: relative;
 	width: 570px;
-	height: 390px;
+	height: 440px;
 	margin: auto;
 	background: #fff;
 	padding : 0px;
