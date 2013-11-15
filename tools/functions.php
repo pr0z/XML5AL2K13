@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'class/column.php';
 include 'class/table.php';
 include 'class/database.php';
@@ -42,7 +41,9 @@ function ChangeUserRights($firstName, $name, $rights) {
     $user = $xml->xpath("//user[firstName = '" . $firstName . "' and name = '" . $name . "']");
     $user[0]->rights = $rights;
     $xml->asXML('xml/users.xml');
-    $_SESSION['right'] = $rights;
+    if ($user[0]->firstName == $_SESSION['user']) {
+        $_SESSION['right'] = $rights;
+    }
     header('Location:admin.php');
 }
 
@@ -129,7 +130,7 @@ function GetDbByUsername($username) {
 }
 
 function GetDbByDate($criteria, $date) {
-    $fdt = DateTime::createFromFormat("Y-m-d", $date);
+    $fdt = DateTime::createFromFormat("m/d/Y", $date);
     $xml = simplexml_load_file('xml/databases.xml');
     $records = $xml->xpath("//database");
     $results = array();
@@ -267,7 +268,7 @@ function DisplayUsers($users) {
 }
 
 function GetFormattedTitle($criteria, $date) {
-    $date = DateTime::createFromFormat("Y-m-d", $_GET['date'])->format("d/m/Y");
+    $fdt = DateTime::createFromFormat("m/d/Y", $date)->format("d/m/Y");
     switch ($criteria) {
         case "before":
             return "Liste des bases créées avant le " . $date;

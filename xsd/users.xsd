@@ -13,6 +13,7 @@
                             <xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
                             <xsd:element name="mail" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
                             <xsd:element name="password" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
+                            <xsd:element name="rights" minOccurs="1" maxOccurs="1" type="xsd:string" /> 
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>

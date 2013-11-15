@@ -4,6 +4,11 @@ if (isset($_SESSION['user'])) {
     include 'head.php';
     include 'tools/functions.php';
     ?>
+    <script>
+        $(function() {
+            $("#dateSelector").datepicker();
+        });
+    </script>
     <div id='bloc'>
         <div id='cssmenu'>
             <ul>
@@ -24,7 +29,7 @@ if (isset($_SESSION['user'])) {
             <form method="get" action="result.php"  class="custom-form">
                 <label for="username" class="dblabels">Recherche par date  : </label>
                 <input type="radio" checked="checked" name="criteria" value="before" >Créee avant le</input>
-                <input id="dateSelector" type="date" name="date" /><br />
+                <input id="dateSelector" type="text"  name="date" /><br />
                 <input id="leftRadioDate" type="radio" name="criteria" value="after" >Créee après le</input><br />
                 <input id="leftRadioDate" type="radio" name="criteria" value="on" >Créee le</input>
                 <input class="btnquery" type="submit" value="Rechercher" name="rechercher"/>
