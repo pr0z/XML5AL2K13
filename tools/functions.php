@@ -210,7 +210,7 @@ function DisplayResults($sectionTitle, $results) {
             <h4 class="dbTitle" style="width:380px;"><?php echo $db->Name; ?></h4>
             <i class="dbInfos">Ajoutée par <?php echo $db->CreatorName; ?>, le <?php echo $db->CreationDate; ?></i><br />
             <div class="container-bt">
-                <form method="post" action="steptwo.php" class="formBase" style="margin-left:-245px;">
+                <form method="post" action="editTable.php" class="formBase" style="margin-left:-245px;">
                     <input type="hidden" name="creator" value="<?php echo $db->CreatorName ?>" />
                     <input type="hidden" name="dbname" value="<?php echo $db->Name ?>" />
                     <input type="submit" value="Consulter / Editer" />
