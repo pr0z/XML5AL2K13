@@ -138,8 +138,6 @@ if (isset($_SESSION['user'])) {
                 <label for="dbname" class="dblabels"> Nom de la table : </label><input type="text" id="inputName" name="tbname" /><br />
                 <label for="nbtable" class="dblabels">Nombre de colonnes : </label>
                 <input id="inputNb" name="nbcols" onKeyPress="return false;" class="ui-spinner-input" value="1"/>
-                <a style="position:absolute;margin-left:-19px;margin-top:7px;pointer-events:none;" tabindex="-1" role="button" aria-disabled="false"><img src="images/btTop.png" /></a>
-                <a style="position:absolute;margin-left:-19px;margin-top:21px;pointer-events:none;" tabindex="-1" role="button" aria-disabled="false"><img src="images/btBot.png" /></a>
                 <br />
                 <input type="hidden" name="creator" value="<?php echo $user_name ?>" />
                 <input type="hidden" name="dbname" value="<?php echo $db_name ?>" />
