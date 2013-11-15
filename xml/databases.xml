@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databases>
 	<database>Roman/XMLPROJECT.xml</database>
-    <database>Quentin/XMLDataBase.xml</database><database>Roman/PhpDataBase.xml</database></databases>
+    <database>Quentin/XMLDataBase.xml</database><database>Roman/PhpDataBase.xml</database><database>Roman/TestBase.xml</database></databases>
