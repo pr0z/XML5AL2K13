@@ -36,8 +36,6 @@
         <xsd:sequence>
             <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
             <xsd:element name="columns" type="Columns" minOccurs="1" maxOccurs="1" />
-            <xsd:element name="primaryKey" type="xsd:string" minOccurs="1" maxOccurs="1" />
-            <xsd:element name="foreignKey" type="ForeignKey" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
     

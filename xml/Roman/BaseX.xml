@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<database>
+    <metaInformations>
+        <dbName>BaseX</dbName>
+        <creatorName>Roman</creatorName>
+        <creationDate>15/11/2013</creationDate>
+    </metaInformations>
+    <tables>
+        <table>
+            <name>TableX</name>
+            <columns>
+                <column>
+                    <name>IdX</name>
+                    <type>int</type>
+                </column>
+                <column>
+                    <name>NomX</name>
+                    <type>varchar</type>
+                </column>
+            </columns>
+        </table>
+    </tables>
+</database>
