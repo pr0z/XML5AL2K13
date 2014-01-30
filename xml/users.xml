@@ -24,12 +24,6 @@
     </user>
     
     
-    <user>
-        <firstName>Guest</firstName>
-        <name>Guest</name>
-        <mail>guest@gmail.com</mail>
-        <password>f71dbe52628a3f83a77ab494817525c6</password>
-        <rights>read</rights>
-    </user>
     
-</users>
+    
+<user><firstName>Guest</firstName><name>Guest</name><mail>guest@gmail.com</mail><password>084e0343a0486ff05530df6c705c8bb4</password><rights>read</rights></user></users>
